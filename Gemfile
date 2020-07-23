@@ -27,6 +27,9 @@ gem 'racksh'
 gem 'rake'
 gem 'rest-client'
 
+# Business
+gem 'money'
+
 group :development, :test do
   gem 'debase'
   gem 'factory_bot'

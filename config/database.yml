@@ -8,11 +8,11 @@ default: &default
 
 development:
   <<: *default
-  database: <%= String(ENV['DB_NAME'] || 'ps_neteller_dev') %>
+  database: <%= String(ENV['DB_NAME'] || 'ps_mpay_dev') %>
 
 test:
   <<: *default
-  database: <%= String(ENV['DB_NAME'] || 'ps_neteller_test') %>
+  database: <%= String(ENV['DB_NAME'] || 'ps_mpay_test') %>
 
 production:
   <<: *default
