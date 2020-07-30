@@ -2,9 +2,10 @@
 
 describe Transaction do
   let(:transaction) { described_class.new }
+  let(:uid)         { SecureRandom.uuid }
   let(:input) do
     {
-      account_uid: SecureRandom.uuid,
+      account_uid: uid,
       account_type: 'RealAccount',
       currency: 'USD',
       fractional: 10_000,
@@ -20,7 +21,7 @@ describe Transaction do
 
     context 'insert to DB successfully' do
       it { is_expected.to be_an_instance_of(Hash) }
-      #it { expect(save_payment[:uid]).to be eq(input[:uid]) }
+
       it { expect(save_payment[:currency]).to eq(input[:currency]) }
       it { expect(save_payment[:fractional]).to eq(input[:fractional]) }
       it { expect(save_payment[:status]).to eq(input[:status]) }

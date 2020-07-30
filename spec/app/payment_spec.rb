@@ -8,7 +8,7 @@ describe Payment do
 
   describe '.create' do
     before do
-      allow(Validator).to      receive(:call).and_return(nil)
+      allow(Validator).to      receive_message_chain(:new, :call).and_return(nil)
       allow(Transaction).to    receive(:save_payment).and_return(nil)
       allow(PreparePayment).to receive(:call).and_return(nil)
     end

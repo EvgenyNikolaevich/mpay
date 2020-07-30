@@ -1,6 +1,9 @@
 ---
 default: &default
-  bugsnag_key: <%= String(ENV['BUGSNAG_API_KEY']) %>
+  bugsnag_key: <%= String(ENV['BUGSNAG_API_KEY']) || '' %>
+  services:
+    mpay:
+      url: <%= String(ENV['MPAY_URL']) || 'https://www.mpay.com' %>
 
 development:
   <<: *default
