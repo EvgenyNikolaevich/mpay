@@ -12,7 +12,12 @@ class PreparePayment
   private
 
   def build_body(input)
-    {}
+    {
+      currency: input[:currency],
+      amount: input[:fractional] / 100,
+      name: 'Amarkets payment',
+      description: input[:uid]
+    }
   end
 
   def build_headers
@@ -20,7 +25,7 @@ class PreparePayment
   end
 
   def build_url
-    config
+    [config, 'v1.0/invoices'].join('/')
   end
 
   def config
