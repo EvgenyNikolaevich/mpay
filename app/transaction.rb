@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
+# class for working with table payments
 class Transaction
-  def save_payment(input)
-    dataset.returning.insert(input).first
-  end
+  class << self
+    def save_payment(input)
+      payments.returning.insert(input).first
+    end
 
-  def dataset
-    DB[:payments]
+    private
+
+    def payments
+      DB[:payments]
+    end
   end
 end

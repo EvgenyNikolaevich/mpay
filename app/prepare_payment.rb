@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# prepare payment request for process it in payment system
 class PreparePayment
   def call(input)
     body    = build_body(input)
